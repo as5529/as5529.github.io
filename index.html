@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhinandan Singh — Product Design Portfolio</title>
+<meta name="description" content="Product design portfolio of Abhinandan Singh, a Software Analyst focused on user experience, responsive interfaces and technology-driven products.">
+<style>
+:root{
+  --bg:#0b0b0f; --surface:#13131a; --surface2:#1a1a22; --text:#f5f5f7;
+  --muted:#a8a8b3; --line:#2a2a34; --accent:#c7ff4a; --max:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),92%);margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(11,11,15,.82);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;letter-spacing:-.04em}
+.nav-links{display:flex;gap:26px;color:var(--muted);font-size:14px}
+.nav-links a:hover{color:var(--text)}
+.hero{padding:110px 0 90px;display:grid;grid-template-columns:1.4fr .6fr;gap:60px;align-items:end}
+.kicker{color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;margin-bottom:18px}
+h1{font-size:clamp(48px,7vw,88px);line-height:.98;letter-spacing:-.065em;max-width:850px}
+.hero p{margin-top:28px;color:var(--muted);font-size:19px;max-width:700px}
+.hero-card{border:1px solid var(--line);background:linear-gradient(145deg,var(--surface),#0e0e13);border-radius:24px;padding:28px}
+.hero-card strong{font-size:34px;display:block;line-height:1.1;margin-bottom:8px}
+.hero-card span{color:var(--muted);font-size:14px}
+.cta-row{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{padding:12px 18px;border-radius:999px;border:1px solid var(--line);font-weight:700;font-size:14px}
+.btn.primary{background:var(--accent);color:#0b0b0f;border-color:var(--accent)}
+section{padding:82px 0;border-top:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;gap:30px;margin-bottom:38px}
+.section-head h2{font-size:42px;letter-spacing:-.045em}
+.section-head p{color:var(--muted);max-width:520px}
+.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+.case-visual{height:260px;background:linear-gradient(135deg,#20202a,#101015);position:relative;padding:28px}
+.mock-window{position:absolute;left:12%;right:12%;top:18%;bottom:-8%;background:#f6f6f3;border-radius:16px 16px 0 0;padding:18px;color:#151515;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.mock-bar{height:8px;width:38%;background:#d9d9d4;border-radius:10px;margin-bottom:22px}
+.mock-title{font-size:22px;font-weight:800;letter-spacing:-.04em;max-width:230px}
+.mock-line{height:8px;background:#deded9;border-radius:10px;margin-top:12px;width:75%}
+.mock-pill{display:inline-block;background:#151515;color:white;border-radius:20px;padding:8px 12px;font-size:11px;margin-top:18px}
+.case-body{padding:28px}
+.tag{display:inline-block;color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.case h3{font-size:28px;letter-spacing:-.04em;margin-bottom:10px}
+.case-body>p{color:var(--muted);margin-bottom:20px}
+.case-meta{display:grid;grid-template-columns:1fr 1fr;gap:15px;padding-top:18px;border-top:1px solid var(--line)}
+.case-meta div{font-size:13px}.case-meta span{display:block;color:var(--muted);margin-bottom:3px}
+.detail{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+.detail-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px}
+.detail-card h4{font-size:19px;margin-bottom:10px}.detail-card p,.detail-card li{color:var(--muted);font-size:15px}
+.detail-card ul{padding-left:18px}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step{border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--surface)}
+.step-num{color:var(--accent);font-weight:900;font-size:13px}.step h4{margin:10px 0 6px}.step p{color:var(--muted);font-size:14px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}.about-grid p{color:var(--muted);font-size:17px}
+.skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.skill{border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:13px;color:#d5d5db}
+footer{padding:50px 0;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:20px}
+@media(max-width:800px){
+  .hero,.about-grid,.case-grid,.detail{grid-template-columns:1fr}
+  .hero{padding-top:75px}.hero-card{max-width:360px}.process{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}.section-head{display:block}.section-head p{margin-top:10px}
+}
+@media(max-width:500px){.process{grid-template-columns:1fr}h1{font-size:52px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#">AS.</a>
+    <div class="nav-links">
+      <a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="container hero">
+  <div>
+    <div class="kicker">Product Design · UI/UX · Technology</div>
+    <h1>Designing digital experiences that make sense.</h1>
+    <p>I'm Abhinandan Singh, a Software Analyst with a Computer Science background. I enjoy turning user and business needs into clear, responsive and practical digital experiences.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#work">View selected work</a>
+      <a class="btn" href="mailto:thakurabhinandaningh@gmail.com">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <strong>01</strong>
+    <span>Selected case studies</span>
+    <br><br>
+    <strong>UI → UX → Product</strong>
+    <span>Web interfaces, e-commerce experiences and user-focused product thinking.</span>
+  </div>
+</header>
+
+<section id="work">
+  <div class="container">
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <p>A small selection of projects that show how I approach interfaces, responsiveness, user feedback and product requirements.</p>
+    </div>
+
+    <div class="case-grid">
+      <article class="case">
+        <div class="case-visual">
+          <div class="mock-window">
+            <div class="mock-bar"></div>
+            <div class="mock-title">Find your next meal.</div>
+            <div class="mock-line"></div><div class="mock-line" style="width:55%"></div>
+            <span class="mock-pill">Explore restaurants</span>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="tag">Case Study 01 · Personal Project</span>
+          <h3>YumJunction</h3>
+          <p>A responsive food-delivery web experience connecting customers with local restaurants, with interactive pages and a user feedback survey.</p>
+          <div class="case-meta">
+            <div><span>Role</span>Product / Frontend</div>
+            <div><span>Focus</span>UI · UX · Responsive Web</div>
+            <div><span>Stack</span>HTML · CSS · JavaScript</div>
+            <div><span>Outcome</span>Responsive, performance-focused experience</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-visual">
+          <div class="mock-window">
+            <div class="mock-bar"></div>
+            <div class="mock-title">A clearer shopping journey.</div>
+            <div class="mock-line"></div><div class="mock-line" style="width:68%"></div>
+            <span class="mock-pill">Shop now</span>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="tag">Case Study 02 · Professional Work</span>
+          <h3>E-commerce Storefront UX</h3>
+          <p>Interface and storefront improvements carried out while working as a Software Analyst, combining business requirements with frontend implementation.</p>
+          <div class="case-meta">
+            <div><span>Role</span>Software Analyst</div>
+            <div><span>Focus</span>UI · UX · Business Needs</div>
+            <div><span>Stack</span>Shopify Liquid · HTML · CSS · JS</div>
+            <div><span>Outcome</span>Improved storefront functionality and UX</div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="detail">
+      <div class="detail-card">
+        <h4>01 — Problem</h4>
+        <p>For YumJunction, the goal was to create a simple food-discovery and ordering experience that works across different screen sizes while keeping the interface engaging.</p>
+      </div>
+      <div class="detail-card">
+        <h4>02 — Approach</h4>
+        <ul>
+          <li>Built responsive layouts for different viewport sizes.</li>
+          <li>Created interactive pages using HTML, CSS and JavaScript.</li>
+          <li>Included a user feedback survey to learn from the experience.</li>
+          <li>Focused on page performance and cross-device usability.</li>
+        </ul>
+      </div>
+      <div class="detail-card">
+        <h4>03 — What I learned</h4>
+        <p>Good product experiences require more than visual polish: responsive behavior, clear interactions, feedback and performance all influence how users experience a product.</p>
+      </div>
+      <div class="detail-card">
+        <h4>04 — Design direction</h4>
+        <p>The interface prioritizes clear hierarchy, readable content, straightforward calls to action and a layout that adapts naturally across devices.</p>
+      </div>
+    </div>
+
+    <div class="detail">
+      <div class="detail-card">
+        <h4>01 — Context</h4>
+        <p>In my Software Analyst role, I work with e-commerce storefronts and translate business requirements into technical interface changes.</p>
+      </div>
+      <div class="detail-card">
+        <h4>02 — Approach</h4>
+        <ul>
+          <li>Customized Shopify themes using Liquid, HTML, CSS and JavaScript.</li>
+          <li>Considered business requirements while implementing storefront changes.</li>
+          <li>Worked on functionality and user-experience improvements.</li>
+          <li>Balanced implementation constraints with the intended customer journey.</li>
+        </ul>
+      </div>
+      <div class="detail-card">
+        <h4>03 — What I learned</h4>
+        <p>Product design decisions become stronger when user experience, business goals and technical feasibility are considered together.</p>
+      </div>
+      <div class="detail-card">
+        <h4>04 — Scope</h4>
+        <p>This case study intentionally presents the work at a high level and focuses on the design and problem-solving approach rather than exposing internal company information.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <div class="section-head">
+      <h2>My approach</h2>
+      <p>A simple process I use when working on digital experiences.</p>
+    </div>
+    <div class="process">
+      <div class="step"><div class="step-num">01</div><h4>Understand</h4><p>Clarify the user, business objective and constraints.</p></div>
+      <div class="step"><div class="step-num">02</div><h4>Explore</h4><p>Break the problem down and explore possible flows and interface ideas.</p></div>
+      <div class="step"><div class="step-num">03</div><h4>Build</h4><p>Turn the chosen direction into a responsive, functional experience.</p></div>
+      <div class="step"><div class="step-num">04</div><h4>Improve</h4><p>Use feedback, testing and performance observations to iterate.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="kicker">About me</div>
+      <h2 style="font-size:42px;letter-spacing:-.045em">Designer mindset.<br>Engineer foundation.</h2>
+    </div>
+    <div>
+      <p>I'm a Computer Science graduate and Software Analyst interested in product design, UI/UX and the intersection of business requirements and technology. My development background helps me think about both the experience users see and the systems needed to make it work.</p>
+      <div class="skills">
+        <span class="skill">UI/UX</span><span class="skill">Responsive Design</span><span class="skill">HTML</span>
+        <span class="skill">CSS</span><span class="skill">JavaScript</span><span class="skill">Shopify Liquid</span>
+        <span class="skill">Product Thinking</span><span class="skill">User Feedback</span><span class="skill">SQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-head">
+      <h2>Let's build something useful.</h2>
+      <p>I'm interested in product design, UI/UX and technology-driven products where thoughtful experiences can solve real user problems.</p>
+    </div>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:thakurabhinandaningh@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer class="container">
+  <span>© 2026 Abhinandan Singh</span>
+  <span>Product Design Portfolio</span>
+</footer>
+</body>
+</html>
